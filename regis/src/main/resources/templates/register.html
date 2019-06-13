@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+
+        // Function to check Whether both passwords
+        // is same or not.
+        function checkPassword(form) {
+            password1 = form.password1.value;
+            password2 = form.password2.value;
+
+            // If password not entered
+            if (password1 == '')
+                alert ("Please enter Password");
+
+            // If confirm password not entered
+            else if (password2 == '')
+                alert ("Please enter confirm password");
+
+            // If Not same return False.
+            else if (password1 != password2) {
+                alert ("\nPassword did not match: Please try again...")
+                //  return false;
+            }
+
+            // If same return True.
+            else{
+                alert("Password Match: thank you!")
+                // return true;
+            }
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.em.value))
+            {
+                return (true)
+            }
+            alert("You have entered an invalid email address!")
+            return (false)
+        }
+    </script>
+</head>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Home</a>
+        </div>
+        <nav class="nav navbar-nav">
+            <li class="active"><a href="#">About</a></li>
+            <div class="container">
+                <div class="dropdown">
+                    <div class="nav navbar-nav navbar-right">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Register
+                        <span class="caret"></span></button>
+                    <form onSubmit = "return checkPassword(this)" class="dropdown-menu">
+                        <div class="form-group">
+
+                            <input type="text" name="name" placeholder="Username"class="form-control"><br>
+                            <input type="email" name="em" placeholder="email address" class="form-control"><br>
+                            <br>
+                            <input type="password" name="password1" placeholder="password" class="password"><br><br>
+
+                            <input type="password" name="password2" placeholder="conform password"class="conform password">
+                        </div>
+
+                            <input type="submit" value = "Submit">
+
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+</body>
