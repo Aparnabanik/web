@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Display Rooms</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Room number</th>
+        <th> Number Of Row</th>
+        <th> Bench per Ror</th>
+        <th>Bench Capacity</th>
+        <th> Total capacity</th>
+        <th> Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <a th:href="@{/rooms/addNew}">Add New Room</a>
+    <tr th:each="room:${rooms}">
+        <td th:text="${room.roomNo}"></td>
+        <td th:text="${room.noOfRow}"></td>
+        <td th:text="${room.benchPerRow}"></td>
+        <td th:text="${room.benchCapacity}"></td>
+        <td th:text="${room.getBenchCapacity()*room.getNoOfRow()*room.getBenchPerRow()}"></td>
+        <td> <a role="button" th:href="@{rooms/edit/{roomNo} (roomNo=${room.roomNo})}"> Edit</a>
+
+            <a role="button" th:href="@{rooms/remove/{roomNo}(roomNo=${room.roomNo})}"> Delete</a></td>
+    </tr>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+</table>
+
+</body>
+</html>
